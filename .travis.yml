@@ -1,2 +1,5 @@
 ﻿language: csharp
 solution: CombatSimulatorLibrary.sln
+dotnet: 3.1
+script:
+ - dotnet restore

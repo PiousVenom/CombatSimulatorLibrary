@@ -1,5 +1,4 @@
 ﻿using CombatSimulatorLibrary.Base;
-using CombatSimulatorLibrary.Items;
 
 namespace CombatSimulatorLibrary.Persons
 {
@@ -10,11 +9,11 @@ namespace CombatSimulatorLibrary.Persons
         /// <summary>
         /// How many experience points the player has.
         /// </summary>
-        public int CurrentExperiencePoints {get;set; }
+        public int CurrentExperiencePoints { get; set; }
         /// <summary>
         /// How many gold pieces the player has.
         /// </summary>
-        public int GoldPieces {get;set;}
+        public int GoldPieces { get; set; }
 
         #endregion Properties
 

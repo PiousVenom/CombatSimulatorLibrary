@@ -1,5 +1,4 @@
 ﻿using CombatSimulatorLibrary.Base;
-using CombatSimulatorLibrary.Items;
 
 namespace CombatSimulatorLibrary.Persons
 {
@@ -14,7 +13,7 @@ namespace CombatSimulatorLibrary.Persons
         /// <summary>
         /// How many gold pieces the player gets for beating this enemy.
         /// </summary>
-        public int GoldPieceValue { get;set; }
+        public int GoldPieceValue { get; set; }
 
         #endregion Properties
 

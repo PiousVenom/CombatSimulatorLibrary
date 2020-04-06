@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Kevin Hebert</Authors>
+    <Company>Pious Venom Studios</Company>
+    <Product>Combat Simulator Library</Product>
   </PropertyGroup>
 
 </Project>

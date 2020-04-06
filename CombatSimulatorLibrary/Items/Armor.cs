@@ -11,7 +11,7 @@ namespace CombatSimulatorLibrary.Items
         public Armor(int defense) => Defense = defense;
 
         #region Properties
-        
+
         /// <summary>
         /// This is the defense provided by the armor.
         /// </summary>        

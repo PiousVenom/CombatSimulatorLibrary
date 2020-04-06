@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Authors>Kevin Hebert</Authors>
+
+    <Company>Pious Venom Studios</Company>
+
+    <Product>Combat Simulator Library Tests</Product>
   </PropertyGroup>
 
   <ItemGroup>

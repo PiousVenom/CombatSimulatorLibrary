@@ -8,15 +8,13 @@ namespace CombatSimulatorLibrary.Items
         /// Creates a new Armor object
         /// </summary>
         /// <param name="defense" type="int">How much defense this armor will provide.</param>
-        public Armor(int defense)
-        {
-            Defense = defense;
-        }
+        public Armor(int defense) => Defense = defense;
 
+        #region Properties
+        
         /// <summary>
         /// This is the defense provided by the armor.
-        /// </summary>
-        #region Properties
+        /// </summary>        
         public int Defense { get; }
 
         #endregion Properties
@@ -26,11 +24,7 @@ namespace CombatSimulatorLibrary.Items
         /// <summary>
         /// Sets the sell value of the armor.
         /// </summary>
-        public override void SetSellValue()
-        {
-            var tempNumber = 35 * Cost;
-            SellValue = tempNumber / 100;
-        }
+        public override void SetSellValue() => SellValue = (35 * Cost) / 100;
 
         #endregion Methods
     }

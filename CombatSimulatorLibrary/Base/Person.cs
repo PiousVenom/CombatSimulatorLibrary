@@ -35,6 +35,7 @@ namespace CombatSimulatorLibrary.Base
         /// The armor that is equipped to the person.
         /// </summary>
         public Armor EquippedArmor { get; set; }
+
         #endregion Properties
 
         #region Methods
@@ -43,37 +44,51 @@ namespace CombatSimulatorLibrary.Base
         /// Returns the amount of damage that a person deals.
         /// </summary>
         /// <returns type="int">Damage dealt.</returns>
-        public int Attack()
-        {
-            return EquippedWeapon.SwingWeapon();
-        }
+        public int Attack() => EquippedWeapon.SwingWeapon();
 
         /// <summary>
         /// Returns the amount of damage that a person can defend against.
         /// </summary>
         /// <returns type="int">Amount of damage blocked.</returns>
-        public int Defend()
-        {
-            return EquippedArmor.Defense;
-        }
+        public int Defend => EquippedArmor.Defense;
 
         /// <summary>
         /// Removes hit points after taking damage.
         /// </summary>
         /// <param name="hpLost" type="int">Amount of hit points to remove.</param>
-        public void RemoveHitPoints(int hpLost)
-        {
-            CurrentHitPoints -= hpLost;
-        }
+        public void RemoveHitPoints(int hpLost) => CurrentHitPoints -= hpLost;
 
         /// <summary>
         /// Resets a person hit points to their max.
         /// </summary>
-        public void ResetHitPoints()
+        public void ResetHitPoints() => CurrentHitPoints = MaxHitPoints;
+
+        /// <summary>
+        /// Adds an item from the person's inventory.
+        /// </summary>
+        /// <param name="itemToAdd" type="Item">Item to be added to the inventory.</param>
+        public void AddItemToInventory(Item itemToAdd)
         {
-            CurrentHitPoints = MaxHitPoints;
+            Inventory.Add(itemToAdd);
         }
 
+        /// <summary>
+        /// Removes an item from the person's inventory.
+        /// </summary>
+        /// <param name="itemToRemove" type="Item">Item to be removed from the inventory.</param>
+        public void RemoveItemFromInventory(Item itemToRemove) => Inventory.Remove(itemToRemove);
+
+        /// <summary>
+        /// Weapon to equip to the person.
+        /// </summary>
+        /// <param name="weaponToEquip" type="Weapon">Weapon to equip to the person.</param>
+        public void EquipWeapon(Weapon weaponToEquip) => EquippedWeapon = weaponToEquip;
+
+        /// <summary>
+        /// Equips armor to the person.
+        /// </summary>
+        /// <param name="armorToEquip" type="Armor">Armor to equip to the person.</param>
+        public void EquipArmor(Armor armorToEquip) => EquippedArmor = armorToEquip;
         #endregion Methods
     }
 }

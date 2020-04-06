@@ -28,11 +28,7 @@
         /// <summary>
         /// Sets the default sell value for an item.
         /// </summary>
-        public virtual void SetSellValue()
-        {
-            var tempNumber = 10 * Cost;
-            SellValue = tempNumber / 100;
-        }
+        public virtual void SetSellValue() => SellValue = (10 * Cost) / 100;
 
         #endregion Methods
     }

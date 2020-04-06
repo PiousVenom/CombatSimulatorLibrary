@@ -12,7 +12,10 @@ namespace CombatSimulatorLibrary.Items
         /// <param name="minDamage" type="int">Minimum damage the weapon can do.</param>
         /// <param name="maxDamage" type="int">Maximum damage the weapon can do.</param>
         /// <param name="name" type="string">The name of the weapon.</param>
-        public Weapon(int cost, int minDamage, int maxDamage, string name)
+        public Weapon(int cost,
+                      int minDamage,
+                      int maxDamage,
+                      string name)
         {
             MinDamage = minDamage;
             MaxDamage = maxDamage;
@@ -39,19 +42,13 @@ namespace CombatSimulatorLibrary.Items
         /// Swings the weapon to do damage.
         /// </summary>
         /// <returns>Returns the amount of damage dealt, random between Min and Max properties.</returns>
-        public int SwingWeapon()
-        {
-            return new Random().Next(MinDamage, MaxDamage);
-        }
+        public int SwingWeapon() => new Random().Next(MinDamage, MaxDamage);
 
         /// <summary>
         /// Displays the damage range that a weapon can do.
         /// </summary>
         /// <returns>A string to display weapons damage range.</returns>
-        public string DisplayDamage()
-        {
-            return MinDamage + " - " + MaxDamage;
-        }
+        public string DisplayDamage() => MinDamage + " - " + MaxDamage;
 
         #endregion Methods
     }

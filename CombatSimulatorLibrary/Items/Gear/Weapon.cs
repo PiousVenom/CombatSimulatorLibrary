@@ -1,7 +1,7 @@
-﻿using CombatSimulatorLibrary.Base;
-using System;
+﻿using System;
+using CombatSimulatorLibrary.Base;
 
-namespace CombatSimulatorLibrary.Items
+namespace CombatSimulatorLibrary.Items.Gear
 {
     public class Weapon : Item
     {
@@ -28,11 +28,11 @@ namespace CombatSimulatorLibrary.Items
         /// <summary>
         /// This is the minimum damage that a weapon can do.
         /// </summary>
-        int MinDamage { get; }
+        private int MinDamage { get; }
         /// <summary>
         /// This is the maximum damage that a weapon can do.
         /// </summary>
-        int MaxDamage { get; }
+        private int MaxDamage { get; }
 
         #endregion Properties
 

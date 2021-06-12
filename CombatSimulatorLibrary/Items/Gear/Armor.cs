@@ -1,6 +1,6 @@
 ﻿using CombatSimulatorLibrary.Base;
 
-namespace CombatSimulatorLibrary.Items
+namespace CombatSimulatorLibrary.Items.Gear
 {
     public class Armor : Item
     {
@@ -20,6 +20,12 @@ namespace CombatSimulatorLibrary.Items
         #endregion Properties
 
         #region Methods
+
+        /// <summary>
+        /// Displays the Armor Rating.
+        /// </summary>
+        /// <returns>A string to display an armor's defense rating.</returns>
+        public string DisplayArmor() => "Armor Defense Rating: " + Defense;
 
         /// <summary>
         /// Sets the sell value of the armor.

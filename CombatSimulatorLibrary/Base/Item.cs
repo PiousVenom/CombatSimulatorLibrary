@@ -1,6 +1,8 @@
-﻿namespace CombatSimulatorLibrary.Base
+﻿using CombatSimulatorLibrary.Interfaces;
+
+namespace CombatSimulatorLibrary.Base
 {
-    public abstract class Item
+    public abstract class Item: IItem
     {
         #region Properties
 
@@ -19,7 +21,7 @@
         /// <summary>
         /// Whether or not an item is equipped to the person.
         /// </summary>
-        public bool IsEquiped { get; set; }
+        public bool IsEquipped { get; set; }
 
         #endregion Properties
 
@@ -27,6 +29,7 @@
 
         /// <summary>
         /// Sets the default sell value for an item.
+        /// Formula: (10 * Cost) / 100
         /// </summary>
         public virtual void SetSellValue() => SellValue = (10 * Cost) / 100;
 

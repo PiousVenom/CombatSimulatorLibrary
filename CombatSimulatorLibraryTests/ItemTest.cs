@@ -1,7 +1,8 @@
 using CombatSimulatorLibrary.Items;
+using CombatSimulatorLibrary.Items.Gear;
 using NUnit.Framework;
 
-namespace CombatSimulatorLibrary.Tests
+namespace CombatSimulatorLibraryTests
 {
     public class ItemTest
     {

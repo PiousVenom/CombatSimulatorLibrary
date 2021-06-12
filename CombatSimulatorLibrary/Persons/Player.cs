@@ -1,19 +1,11 @@
 ﻿using CombatSimulatorLibrary.Base;
+using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Persons
 {
     public class Player : Person
     {
         #region Properties
-
-        /// <summary>
-        /// How many experience points the player has.
-        /// </summary>
-        public int CurrentExperiencePoints { get; set; }
-        /// <summary>
-        /// How many gold pieces the player has.
-        /// </summary>
-        public int GoldPieces { get; set; }
 
         #endregion Properties
 
@@ -26,16 +18,19 @@ namespace CombatSimulatorLibrary.Persons
         public void AddExperiencePoints(int amountToAdd) => CurrentExperiencePoints += amountToAdd;
 
         /// <summary>
-        /// Adds gold pieces to the player.
+        /// Converts all currency automagically.
         /// </summary>
-        /// <param name="amountToAdd" type="int">Amount of gold pieces to give the player.</param>
-        public void AddGoldPieces(int amountToAdd) => GoldPieces += amountToAdd;
+        public override void ConvertCurrency()
+        {
+            Convert(Copper, Silver);
+            Convert(Silver, Gold);
+            Convert(Gold, Platinum);
+        }
 
-        /// <summary>
-        /// Removes gold pieces from the player.
-        /// </summary>
-        /// <param name="amountToRemove" type="int">Amount of gold pieces to remove from the player.</param>
-        public void RemoveGoldPieces(int amountToRemove) => GoldPieces -= amountToRemove;
+        private static void Convert(ICoin currentCoin, ICoin nextCoin)
+        {
+            currentCoin.ConvertCurrency(ref nextCoin);
+        }
 
         #endregion Methods
     }

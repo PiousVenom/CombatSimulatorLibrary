@@ -3,10 +3,11 @@ solution: CombatSimulatorLibrary.sln
 dotnet: 5.0
 script:
  - dotnet restore
- - xbuild /p:Configuration=Debug CombatSimulatorLibrary.sln 
-before_install:
- - sudo apt-get install nunit-console
+ - msbuild /p:Configuration=Debug CombatSimulatorLibrary.sln 
+install:
+ - nuget restore solution-name.sln
+ - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 before_script:
  - nuget restore CombatSimulatorLibrary.sln
 after_script:
-  - nunit-console CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll
+ - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe .CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll

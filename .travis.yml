@@ -3,6 +3,7 @@ solution: CombatSimulatorLibrary.sln
 dotnet: 5.0
 script:
  - dotnet restore
+ - xbuild /p:Configuration=Debug CombatSimulatorLibrary.sln 
 before_install:
  - sudo apt-get install nunit-console
 before_script:

@@ -1,10 +1,9 @@
 ﻿language: csharp
 solution: CombatSimulatorLibrary.sln
 dotnet: 5.0
-script:
- - dotnet restore
- - msbuild /p:Configuration=Debug CombatSimulatorLibrary.sln 
- - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll 
 install:
  - nuget restore CombatSimulatorLibrary.sln
  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+ - dotnet restore
+ - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./CombatSimulatorLibraryTests/bin/Release/net5.0/CombatSimulatorLibraryTests.dll

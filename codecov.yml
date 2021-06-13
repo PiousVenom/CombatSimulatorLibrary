@@ -1,0 +1,7 @@
+coverage:
+  status:
+    patch:
+      default:
+        target: 100%
+codecov:
+  token: 347b4e97-c802-4961-a335-261868db3a1b

@@ -6,4 +6,4 @@ install:
  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
  - dotnet restore
- - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./CombatSimulatorLibraryTests/bin/Release/net5.0/CombatSimulatorLibraryTests.dll
+ - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./CombatSimulatorLibrary/CombatSimulatorLibraryTests/bin/Release/net5.0/CombatSimulatorLibraryTests.dll

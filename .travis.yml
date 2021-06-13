@@ -4,10 +4,7 @@ dotnet: 5.0
 script:
  - dotnet restore
  - msbuild /p:Configuration=Debug CombatSimulatorLibrary.sln 
+ - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll 
 install:
- - nuget restore solution-name.sln
- - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
-before_script:
  - nuget restore CombatSimulatorLibrary.sln
-after_script:
- - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe .CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll
+ - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner

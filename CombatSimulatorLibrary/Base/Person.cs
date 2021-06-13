@@ -1,13 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CombatSimulatorLibrary.Interfaces;
-using CombatSimulatorLibrary.Items.Currency;
 using CombatSimulatorLibrary.Items.Gear;
 
 namespace CombatSimulatorLibrary.Base
 {
     public abstract class Person : IPerson
     {
+        protected Person(
+                string name, 
+                int level, 
+                int maxHitPoints
+            )
+        {
+            Name = name;
+            Level = level;
+            MaxHitPoints = maxHitPoints;
+            Inventory = new List<IItem>();
+        }
+
         #region Properties
 
         /// <summary>
@@ -27,29 +37,25 @@ namespace CombatSimulatorLibrary.Base
         /// </summary>
         public int MaxHitPoints { get; set; }
         /// <summary>
-        /// Current experience points for the player
-        /// </summary>
-        public int CurrentExperiencePoints { get; set; }
-        /// <summary>
         /// Current amount of gold coins a person has
         /// </summary>
-        public Gold Gold { get; set; }
+        public int Gold { get; set; }
         /// <summary>
         /// Current amount of platinum coins a person has
         /// </summary>
-        public Platinum Platinum { get; set; }
+        public int Platinum { get; set; }
         /// <summary>
         /// Current amount of silver coins a person has
         /// </summary>
-        public Silver Silver { get; set; }
+        public int Silver { get; set; }
         /// <summary>
         /// Current amount of copper coins a person has
         /// </summary>
-        public Copper Copper { get; set; }
+        public int Copper { get; set; }
         /// <summary>
         /// Inventory of the person.
         /// </summary>
-        public List<Item> Inventory { get; set; }
+        public List<IItem> Inventory { get; set; }
         /// <summary>
         /// The weapon currently equipped to the person.
         /// </summary>
@@ -100,31 +106,86 @@ namespace CombatSimulatorLibrary.Base
         /// Removes an item from the person's inventory.
         /// </summary>
         /// <param name="itemToRemove" type="Item">Item to be removed from the inventory.</param>
-        public void RemoveItemFromInventory(Item itemToRemove) => Inventory.Remove(itemToRemove);
+        public void RemoveItemFromInventory(Item itemToRemove)
+        {
+            if (EquippedShield == itemToRemove)
+            {
+                UnequipShield(itemToRemove as Shield);
+            }
+
+            if (EquippedArmor == itemToRemove)
+            {
+                UnequipArmor(itemToRemove as Armor);
+            }
+
+            if (EquippedWeapon == itemToRemove)
+            {
+                UnequipWeapon(itemToRemove as Weapon);
+            }
+
+            Inventory.Remove((Item) itemToRemove);
+        }
 
         /// <summary>
         /// Weapon to equip to the person.
         /// </summary>
         /// <param name="weaponToEquip" type="Weapon">Weapon to equip to the person.</param>
-        public void EquipWeapon(Weapon weaponToEquip) => EquippedWeapon = weaponToEquip;
+        public void EquipWeapon(Weapon weaponToEquip)
+        {
+            EquippedWeapon = weaponToEquip;
+            weaponToEquip.IsEquipped = true;
+        }
+
+        /// <summary>
+        /// Unequip weapon from the person.
+        /// </summary>
+        /// <param name="weaponToUnequip" type="Weapon">Weapon to unequip from the person.</param>
+        public void UnequipWeapon(Weapon weaponToUnequip)
+        {
+            weaponToUnequip.IsEquipped = false;
+            EquippedWeapon = null;
+        }
 
         /// <summary>
         /// Equips armor to the person.
         /// </summary>
         /// <param name="armorToEquip" type="Armor">Armor to equip to the person.</param>
-        public void EquipArmor(Armor armorToEquip) => EquippedArmor = armorToEquip;
+        public void EquipArmor(Armor armorToEquip)
+        {
+            EquippedArmor = armorToEquip;
+            armorToEquip.IsEquipped = true;
+        }
+
+        /// <summary>
+        /// Unequip armor from the person.
+        /// </summary>
+        /// <param name="armorToUnequip" type="Armor">Armor to unequip from the person.</param>
+        public void UnequipArmor(Armor armorToUnequip)
+        {
+            armorToUnequip.IsEquipped = false;
+            EquippedArmor = null;
+        }
 
         /// <summary>
         /// Equips shield to the person
         /// </summary>
         /// <param name="shieldToEquip" type="Shield">Shield to equip to the person.</param>
-        public void EquipShield(Shield shieldToEquip) => EquippedShield = shieldToEquip;
-
-        public virtual void ConvertCurrency()
+        public void EquipShield(Shield shieldToEquip)
         {
-
+            EquippedShield = shieldToEquip;
+            shieldToEquip.IsEquipped = true;
         }
 
+        /// <summary>
+        /// Unequip shield from the person
+        /// </summary>
+        /// <param name="shieldToUnequip" type="Shield">Shield to unequip from the person.</param>
+        public void UnequipShield(Shield shieldToUnequip)
+        {
+            shieldToUnequip.IsEquipped = false;
+            EquippedShield = null;
+        }
+        
         #endregion Methods
     }
 }

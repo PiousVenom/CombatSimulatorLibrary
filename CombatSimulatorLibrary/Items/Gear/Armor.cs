@@ -7,8 +7,17 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// <summary>
         /// Creates a new Armor object
         /// </summary>
+        /// <param name="cost" type="int">Amount the armor costs in gold pieces.</param>
+        /// <param name="name" type="string">The name of the armor.</param>
         /// <param name="defense" type="int">How much defense this armor will provide.</param>
-        public Armor(int defense) => Defense = defense;
+        public Armor(
+            int cost,
+            string name,
+            int defense
+        ) : base(cost, name)
+        {
+            Defense = defense;
+        }
 
         #region Properties
 
@@ -25,12 +34,12 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// Displays the Armor Rating.
         /// </summary>
         /// <returns>A string to display an armor's defense rating.</returns>
-        public string DisplayArmor() => "Armor Defense Rating: " + Defense;
+        public string DisplayArmor() => string.Concat("Armor Defense Rating: ", Defense);
 
         /// <summary>
         /// Sets the sell value of the armor.
         /// </summary>
-        public override void SetSellValue() => SellValue = (35 * Cost) / 100;
+        public override void SetSellValue() => SellValue = (35 * CostInCopper) / 100;
 
         #endregion Methods
     }

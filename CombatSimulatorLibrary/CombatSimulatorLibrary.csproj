@@ -5,6 +5,7 @@
     <Authors>Kevin Hebert</Authors>
     <Company>Pious Venom Studios</Company>
     <Product>Combat Simulator Library</Product>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
 </Project>

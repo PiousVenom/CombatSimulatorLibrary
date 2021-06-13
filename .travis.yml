@@ -3,3 +3,9 @@ solution: CombatSimulatorLibrary.sln
 dotnet: 5.0
 script:
  - dotnet restore
+before_install:
+ - sudo apt-get install nunit-console
+before_script:
+ - nuget restore CombatSimulatorLibrary.sln
+after_script:
+  - nunit-console CombatSimulatorLibraryTests/bin/Debug/net5.0/CombatSimulatorLibraryTests.dll

@@ -135,7 +135,5 @@ namespace CombatSimulatorLibraryTests
         }
 
         #endregion Person Specific Tests
-
-
     }
 }

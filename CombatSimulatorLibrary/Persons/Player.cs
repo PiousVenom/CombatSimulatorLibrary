@@ -58,7 +58,6 @@ namespace CombatSimulatorLibrary.Persons
 
             CoinsInCopper = temp;
             return false;
-
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using CombatSimulatorLibrary.Base;
+using System.Security.Cryptography;
 
 namespace CombatSimulatorLibrary.Items.Gear
 {
@@ -9,18 +10,18 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// Creates a new Weapon object
         /// </summary>
         /// <param name="cost" type="int">Amount the weapon costs in gold pieces.</param>
+        /// <param name="name" type="string">The name of the weapon.</param>
         /// <param name="minDamage" type="int">Minimum damage the weapon can do.</param>
         /// <param name="maxDamage" type="int">Maximum damage the weapon can do.</param>
-        /// <param name="name" type="string">The name of the weapon.</param>
-        public Weapon(int cost,
-                      int minDamage,
-                      int maxDamage,
-                      string name)
+        public Weapon(
+                int cost,
+                string name,
+                int minDamage,
+                int maxDamage
+            ) : base(cost, name)
         {
             MinDamage = minDamage;
             MaxDamage = maxDamage;
-            Name = name;
-            Cost = cost;
         }
 
         #region Properties
@@ -42,7 +43,11 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// Swings the weapon to do damage.
         /// </summary>
         /// <returns>Returns the amount of damage dealt, random between Min and Max properties.</returns>
-        public int SwingWeapon() => new Random().Next(MinDamage, MaxDamage);
+        public int SwingWeapon()
+        {
+            var random = RandomNumberGenerator.GetInt32(MinDamage, MaxDamage);
+            return random;
+        }
 
         /// <summary>
         /// Displays the damage range that a weapon can do.

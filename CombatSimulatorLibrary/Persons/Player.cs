@@ -1,11 +1,31 @@
 ﻿using CombatSimulatorLibrary.Base;
-using CombatSimulatorLibrary.Interfaces;
+using CombatSimulatorLibrary.CommonClasses;
 
 namespace CombatSimulatorLibrary.Persons
 {
     public class Player : Person
     {
+        public Player(
+                string name,
+                int level,
+                int maxHitPoints
+            ): base(name, level, maxHitPoints)
+        {
+            CurrentExperiencePoints = 0;
+            CurrentHitPoints = maxHitPoints;
+            CoinsInCopper = 0;
+        }
+
         #region Properties
+
+        /// <summary>
+        /// Players coins in copper. Can be converted to other types using the ConvertCurrency().
+        /// </summary>
+        public int CoinsInCopper { get; set; }
+        /// <summary>
+        /// Current experience points for the player.
+        /// </summary>
+        public int CurrentExperiencePoints { get; set; }
 
         #endregion Properties
 
@@ -18,18 +38,40 @@ namespace CombatSimulatorLibrary.Persons
         public void AddExperiencePoints(int amountToAdd) => CurrentExperiencePoints += amountToAdd;
 
         /// <summary>
-        /// Converts all currency automagically.
+        /// Adds coins to the player
         /// </summary>
-        public override void ConvertCurrency()
+        /// <param name="amountToAdd" type="int">Amount of copper coins to add to the player.</param>
+        public void AddCoins(int amountToAdd) => CoinsInCopper += amountToAdd;
+
+        /// <summary>
+        /// Removes coins from the player
+        /// </summary>
+        /// <param name="amountToRemove" type="int">Amount of copper coins to remove from the player.</param>
+        /// <returns type="bool">Returns a true/false. A false return means there wasn't enough coin to remove.</returns>
+        public bool RemoveCoins(int amountToRemove)
         {
-            Convert(Copper, Silver);
-            Convert(Silver, Gold);
-            Convert(Gold, Platinum);
+            var temp = CoinsInCopper;
+
+            CoinsInCopper -= amountToRemove;
+
+            if (CoinsInCopper >= 0) return true;
+
+            CoinsInCopper = temp;
+            return false;
         }
 
-        private static void Convert(ICoin currentCoin, ICoin nextCoin)
+        /// <summary>
+        /// Converts all currency automagically.
+        /// </summary>
+        public void ConvertCurrency()
         {
-            currentCoin.ConvertCurrency(ref nextCoin);
+            var common = new CommonMethods(CoinsInCopper);
+            var coins = common.ConvertCurrency();
+
+            Copper = coins.Item1;
+            Silver = coins.Item2;
+            Gold = coins.Item3;
+            Platinum = coins.Item4;
         }
 
         #endregion Methods

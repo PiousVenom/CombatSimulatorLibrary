@@ -1,9 +1,22 @@
-﻿using CombatSimulatorLibrary.Base;
+﻿using System;
+using System.Security.Cryptography;
+using CombatSimulatorLibrary.Base;
 
 namespace CombatSimulatorLibrary.Persons
 {
     public class Enemy : Person
     {
+        public Enemy(
+            string name,
+            int level,
+            int maxHitPoints
+        ) : base(name, level, maxHitPoints)
+        {
+            CurrentHitPoints = maxHitPoints;
+            ExperiencePointValue = level * 4;
+            CopperPieceValue = RandomNumberGenerator.GetInt32(0, 200);
+        }
+
         #region Properties
 
         /// <summary>
@@ -11,21 +24,10 @@ namespace CombatSimulatorLibrary.Persons
         /// </summary>
         public int ExperiencePointValue { get; set; }
         /// <summary>
-        /// How many gold pieces the player gets for beating this enemy.
-        /// </summary>
-        public int GoldPieceValue { get; set; }
-        /// <summary>
         /// How many copper pieces the player gets for beating this enemy.
         /// </summary>
         public int CopperPieceValue { get; set; }
-        /// <summary>
-        /// How many silver pieces the player gets for beating this enemy.
-        /// </summary>
-        public int SilverPieceValue { get; set; }
-        /// <summary>
-        /// How many platinum pieces the player gets for beating this enemy.
-        /// </summary>
-        public int PlatinumPieceValue { get; set; }
+
         #endregion Properties
 
         #region Methods

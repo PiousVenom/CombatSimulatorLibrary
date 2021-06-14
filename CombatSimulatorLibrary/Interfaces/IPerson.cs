@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using CombatSimulatorLibrary.Base;
-using CombatSimulatorLibrary.Items;
-using CombatSimulatorLibrary.Items.Currency;
 using CombatSimulatorLibrary.Items.Gear;
 
 namespace CombatSimulatorLibrary.Interfaces
@@ -11,29 +9,16 @@ namespace CombatSimulatorLibrary.Interfaces
         #region Properties
 
         string Name { get; set; }
-
         int Level { get; set; }
-        
         int CurrentHitPoints { get; set; }
-
         int MaxHitPoints { get; set; }
-
-        int CurrentExperiencePoints { get; set; }
-
-        Gold Gold { get; set; }
-
-        Platinum Platinum { get; set; }
-
-        Silver Silver { get; set; }
-
-        Copper Copper { get; set; }
-
-        List<Item> Inventory { get; set; }
-
+        int Gold { get; set; }
+        int Platinum { get; set; }
+        int Silver { get; set; }
+        int Copper { get; set; }
+        List<IItem> Inventory { get; set; }
         Weapon EquippedWeapon { get; set; }
-
         Armor EquippedArmor { get; set; }
-
         Shield EquippedShield { get; set; }
 
         #endregion Properties
@@ -57,8 +42,6 @@ namespace CombatSimulatorLibrary.Interfaces
         void EquipArmor(Armor armorToEquip);
 
         void EquipShield(Shield shieldToEquip);
-
-        void ConvertCurrency();
 
         #endregion Methods
     }

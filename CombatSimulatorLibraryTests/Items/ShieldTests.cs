@@ -1,0 +1,45 @@
+﻿using CombatSimulatorLibrary.Items.Gear;
+using NUnit.Framework;
+
+namespace CombatSimulatorLibraryTests.Items
+{
+    public class ShieldTests : SetupTestFixture
+    {
+        [Test]
+        [Category("Item Creation")]
+        public void CanCreateShieldTest()
+        {
+            Assert.IsInstanceOf(typeof(Shield), Shield);
+            Assert.AreEqual("Buckler", Shield.Name);
+            Assert.IsTrue(Shield.IsEquipped);
+        }
+
+        [Test]
+        [Category("Sell Items")]
+        public void SetShieldSellValueTest()
+        {
+            Shield.SetSellValue();
+
+            Assert.That(Shield.SellValue, Is.TypeOf<int>());
+            Assert.AreEqual(30, Shield.SellValue);
+        }
+
+        [Test]
+        [Category("Item Specific")]
+        public void ShieldDefenseTest()
+        {
+            Assert.AreEqual(string.Concat("Shield Defense Rating: ", 10), Shield.DisplayShield());
+        }
+
+        [Test]
+        [Category("Currency Conversion")]
+        public void ShieldCurrencyConversionTest()
+        {
+            Shield.ConvertCurrency();
+            Assert.AreEqual(0, Shield.Copper);
+            Assert.AreEqual(0, Shield.Silver);
+            Assert.AreEqual(2, Shield.Gold);
+            Assert.AreEqual(0, Shield.Platinum);
+        }
+    }
+}

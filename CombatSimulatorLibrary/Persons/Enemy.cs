@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using CombatSimulatorLibrary.Base;
 
 namespace CombatSimulatorLibrary.Persons

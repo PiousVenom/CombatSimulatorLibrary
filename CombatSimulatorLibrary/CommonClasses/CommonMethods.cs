@@ -4,16 +4,12 @@ namespace CombatSimulatorLibrary.CommonClasses
 {
     public class CommonMethods
     {
-        public int CoinsInCopper;
-
-        public CommonMethods(int coinsInCopper) => CoinsInCopper = coinsInCopper;
-
         /// <summary>
         /// Converts all currency automagically.
         /// </summary>
-        public Tuple<int, int, int, int> ConvertCurrency()
+        public Tuple<int, int, int, int> ConvertCurrency(int coinsInCopper)
         {
-            var conversion = Convert(CoinsInCopper);
+            var conversion = Convert(coinsInCopper);
 
             var copper = conversion.Item2;
 

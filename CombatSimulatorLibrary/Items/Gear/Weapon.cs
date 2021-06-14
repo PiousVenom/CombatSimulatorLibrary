@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Security.Cryptography;
 using CombatSimulatorLibrary.Base;
-using System.Security.Cryptography;
 
 namespace CombatSimulatorLibrary.Items.Gear
 {

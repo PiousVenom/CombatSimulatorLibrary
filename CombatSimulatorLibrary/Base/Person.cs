@@ -123,7 +123,7 @@ namespace CombatSimulatorLibrary.Base
                 UnequipWeapon(itemToRemove as Weapon);
             }
 
-            Inventory.Remove((Item) itemToRemove);
+            Inventory.Remove(itemToRemove);
         }
 
         /// <summary>

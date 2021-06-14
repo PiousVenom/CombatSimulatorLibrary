@@ -54,7 +54,10 @@ namespace CombatSimulatorLibrary.Persons
 
             CoinsInCopper -= amountToRemove;
 
-            if (CoinsInCopper >= 0) return true;
+            if (CoinsInCopper >= 0)
+            {
+                return true;
+            }
 
             CoinsInCopper = temp;
             return false;
@@ -65,8 +68,8 @@ namespace CombatSimulatorLibrary.Persons
         /// </summary>
         public void ConvertCurrency()
         {
-            var common = new CommonMethods(CoinsInCopper);
-            var coins = common.ConvertCurrency();
+            var common = new CommonMethods();
+            var coins = common.ConvertCurrency(CoinsInCopper);
 
             Copper = coins.Item1;
             Silver = coins.Item2;

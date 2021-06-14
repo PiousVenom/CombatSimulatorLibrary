@@ -61,8 +61,8 @@ namespace CombatSimulatorLibrary.Base
 
         public virtual void ConvertCurrency()
         {
-            var common = new CommonMethods(CostInCopper);
-            var coins = common.ConvertCurrency();
+            var common = new CommonMethods();
+            var coins = common.ConvertCurrency(CostInCopper);
 
             Copper = coins.Item1;
             Silver = coins.Item2;

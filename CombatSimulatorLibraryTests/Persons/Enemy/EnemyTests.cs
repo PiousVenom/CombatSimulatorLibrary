@@ -1,8 +1,7 @@
 ﻿using CombatSimulatorLibrary.Items.Gear;
-using CombatSimulatorLibrary.Persons;
 using NUnit.Framework;
 
-namespace CombatSimulatorLibraryTests.Persons
+namespace CombatSimulatorLibraryTests.Persons.Enemy
 {
     public class EnemyTests : SetupTestFixture
     {
@@ -10,7 +9,7 @@ namespace CombatSimulatorLibraryTests.Persons
         [Category("Person Creation")]
         public void CanCreateEnemy()
         {
-            Assert.IsInstanceOf(typeof(Enemy), Enemy);
+            Assert.IsInstanceOf(typeof(CombatSimulatorLibrary.Persons.Enemy), Enemy);
             Assert.AreEqual("Goblin", Enemy.Name);
             Assert.AreEqual(2, Enemy.Level);
             Assert.AreEqual(15, Enemy.MaxHitPoints);

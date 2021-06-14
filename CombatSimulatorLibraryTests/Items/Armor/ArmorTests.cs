@@ -1,7 +1,6 @@
-﻿using CombatSimulatorLibrary.Items.Gear;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace CombatSimulatorLibraryTests.Items
+namespace CombatSimulatorLibraryTests.Items.Armor
 {
     public class ArmorTests : SetupTestFixture
     {
@@ -9,7 +8,7 @@ namespace CombatSimulatorLibraryTests.Items
         [Category("Item Creation")]
         public void CanCreateArmorTest()
         {
-            Assert.IsInstanceOf(typeof(Armor), Armor);
+            Assert.IsInstanceOf(typeof(CombatSimulatorLibrary.Items.Gear.Armor), Armor);
             Assert.AreEqual("Plate Armor", Armor.Name);
             Assert.IsTrue(Armor.IsEquipped);
         }

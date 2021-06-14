@@ -1,8 +1,7 @@
 ﻿using CombatSimulatorLibrary.Items.Gear;
-using CombatSimulatorLibrary.Persons;
 using NUnit.Framework;
 
-namespace CombatSimulatorLibraryTests.Persons
+namespace CombatSimulatorLibraryTests.Persons.Player
 {
     public class PlayerTests : SetupTestFixture
     {
@@ -10,7 +9,7 @@ namespace CombatSimulatorLibraryTests.Persons
         [Category("Person Creation")]
         public void CanCreatePlayer()
         {
-            Assert.IsInstanceOf(typeof(Player), Player);
+            Assert.IsInstanceOf(typeof(CombatSimulatorLibrary.Persons.Player), Player);
             Assert.AreEqual("Kevin", Player.Name);
             Assert.AreEqual(1, Player.Level);
             Assert.AreEqual(10, Player.MaxHitPoints);

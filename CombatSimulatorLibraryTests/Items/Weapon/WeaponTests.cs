@@ -1,7 +1,6 @@
-﻿using CombatSimulatorLibrary.Items.Gear;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace CombatSimulatorLibraryTests.Items
+namespace CombatSimulatorLibraryTests.Items.Weapon
 {
     public class WeaponTests : SetupTestFixture
     {
@@ -9,7 +8,7 @@ namespace CombatSimulatorLibraryTests.Items
         [Category("Item Creation")]
         public void CanCreateWeaponTest()
         {
-            Assert.IsInstanceOf(typeof(Weapon), Weapon);
+            Assert.IsInstanceOf(typeof(CombatSimulatorLibrary.Items.Gear.Weapon), Weapon);
             Assert.AreEqual("Long Sword", Weapon.Name);
             Assert.IsTrue(Weapon.IsEquipped);
         }

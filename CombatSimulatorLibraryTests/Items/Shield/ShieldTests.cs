@@ -1,7 +1,6 @@
-﻿using CombatSimulatorLibrary.Items.Gear;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace CombatSimulatorLibraryTests.Items
+namespace CombatSimulatorLibraryTests.Items.Shield
 {
     public class ShieldTests : SetupTestFixture
     {
@@ -9,7 +8,7 @@ namespace CombatSimulatorLibraryTests.Items
         [Category("Item Creation")]
         public void CanCreateShieldTest()
         {
-            Assert.IsInstanceOf(typeof(Shield), Shield);
+            Assert.IsInstanceOf(typeof(CombatSimulatorLibrary.Items.Gear.Shield), Shield);
             Assert.AreEqual("Buckler", Shield.Name);
             Assert.IsTrue(Shield.IsEquipped);
         }

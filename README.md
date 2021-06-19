@@ -7,3 +7,5 @@
 [![GuardRails badge](https://api.guardrails.io/v2/badges/PiousVenom/CombatSimulatorLibrary.svg?token=4f501428f8c9b896d6bffeac2b8fb9195b59f778a45ed482abdaeb2c8f613b3b&provider=github)](https://dashboard.guardrails.io/gh/PiousVenom/77308)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c34655cb98477283e442/maintainability)](https://codeclimate.com/github/PiousVenom/CombatSimulatorLibrary/maintainability)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Code Quality Score](https://www.code-inspector.com/project/23974/score/svg)](https://frontend.code-inspector.com/public/project/23974/CombatSimulatorLibrary/dashboard)
+[![Code Grade](https://www.code-inspector.com/project/23974/status/svg)](https://frontend.code-inspector.com/public/project/23974/CombatSimulatorLibrary/dashboard)

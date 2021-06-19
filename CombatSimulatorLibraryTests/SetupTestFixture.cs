@@ -1,4 +1,5 @@
-﻿using CombatSimulatorLibrary.Items.Gear;
+﻿using CombatSimulatorLibrary.Interfaces;
+using CombatSimulatorLibrary.Items.Gear;
 using CombatSimulatorLibrary.Persons;
 using NUnit.Framework;
 
@@ -7,23 +8,23 @@ namespace CombatSimulatorLibraryTests
     [TestFixture]
     public class SetupTestFixture
     {
-        public Weapon Weapon { get; set; }
-        public Armor Armor { get; set; }
-        public Shield Shield { get; set; }
-        public Player Player { get; set; }
-        public Enemy Enemy { get; set; }
+        protected IItem   Weapon { get; private set; }
+        protected IItem   Armor  { get; private set; }
+        protected IItem   Shield { get; private set; }
+        protected IPerson Player { get; private set; }
+        protected IPerson Enemy  { get; private set; }
 
         [OneTimeSetUp]
         public void SetupTests()
         {
             Weapon = new Weapon(100, "Long Sword", 2, 20);
-            Armor = new Armor(120, "Plate Armor", 10);
+            Armor  = new Armor(120, "Plate Armor", 10);
             Shield = new Shield(200, "Buckler", 10);
             Player = new Player("Kevin", 1, 10);
-            Enemy = new Enemy("Goblin", 2, 15);
+            Enemy  = new Enemy("Goblin", 2, 15);
 
-            Player.AddCoins(500);
-            Player.AddExperiencePoints(500);
+            ((Player)Player).AddCoins(500);
+            ((Player)Player).AddExperiencePoints(500);
             Player.AddItemToInventory(Shield);
             Player.AddItemToInventory(Weapon);
             Player.AddItemToInventory(Armor);

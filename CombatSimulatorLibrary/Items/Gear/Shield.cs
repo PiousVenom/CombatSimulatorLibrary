@@ -4,21 +4,6 @@ namespace CombatSimulatorLibrary.Items.Gear
 {
     public class Shield : Item
     {
-        /// <summary>
-        /// Creates a new Shield object
-        /// </summary>
-        /// <param name="cost" type="int">Amount the shield costs in gold pieces.</param>
-        /// <param name="name" type="string">The name of the shield.</param>
-        /// <param name="defense" type="int">How much defense this shield will provide.</param>
-        public Shield(
-                int cost,
-                string name,
-                int defense
-            ) : base(cost, name)
-        {
-            Defense = defense;
-        }
-
         #region Properties
 
         /// <summary>
@@ -27,6 +12,22 @@ namespace CombatSimulatorLibrary.Items.Gear
         public int Defense { get; }
 
         #endregion Properties
+
+        /// <summary>
+        /// Creates a new Shield object
+        /// </summary>
+        /// <param name="cost" type="int">Amount the shield costs in gold pieces.</param>
+        /// <param name="name" type="string">The name of the shield.</param>
+        /// <param name="defense" type="int">How much defense this shield will provide.</param>
+        public Shield(
+                int    cost,
+                string name,
+                int    defense
+            )
+            : base(cost, name)
+        {
+            Defense = defense;
+        }
 
         #region Methods
 
@@ -40,7 +41,7 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// Sets the sell value of the shield.
         /// Formula: (15 * Cost) / 100
         /// </summary>
-        public override void SetSellValue() => SellValue = (15 * CostInCopper) / 100;
+        public override void SetSellValue() => SellValue = 15 * CostInCopper / 100;
 
         #endregion Methods
     }

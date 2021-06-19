@@ -27,10 +27,10 @@ namespace CombatSimulatorLibraryTests.Items.Weapon
         [Category("Item Specific")]
         public void SwingWeaponTest()
         {
-            var swing = Weapon.SwingWeapon();
+            var swing = ((CombatSimulatorLibrary.Items.Gear.Weapon)Weapon).SwingWeapon();
 
             Assert.That(swing, Is.TypeOf<int>());
-            Assert.AreEqual("2 - 20", Weapon.DisplayDamage());
+            Assert.AreEqual("2 - 20", ((CombatSimulatorLibrary.Items.Gear.Weapon)Weapon).DisplayDamage());
             Assert.GreaterOrEqual(swing, 2);
             Assert.LessOrEqual(swing, 20);
         }
@@ -39,7 +39,7 @@ namespace CombatSimulatorLibraryTests.Items.Weapon
         [Category("Currency Conversion")]
         public void WeaponCurrencyConversionTest()
         {
-            Weapon.ConvertCurrency();
+            ((CombatSimulatorLibrary.Items.Gear.Weapon)Weapon).ConvertCurrency();
             Assert.AreEqual(0, Weapon.Copper);
             Assert.AreEqual(0, Weapon.Silver);
             Assert.AreEqual(1, Weapon.Gold);

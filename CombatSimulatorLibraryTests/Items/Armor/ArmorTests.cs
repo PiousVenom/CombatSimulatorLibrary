@@ -5,6 +5,24 @@ namespace CombatSimulatorLibraryTests.Items.Armor
     public class ArmorTests : SetupTestFixture
     {
         [Test]
+        [Category("Currency Conversion")]
+        public void ArmorCurrencyConversionTest()
+        {
+            ((CombatSimulatorLibrary.Items.Gear.Armor)Armor).ConvertCurrency();
+            Assert.AreEqual(0, Armor.Copper);
+            Assert.AreEqual(2, Armor.Silver);
+            Assert.AreEqual(1, Armor.Gold);
+            Assert.AreEqual(0, Armor.Platinum);
+        }
+
+        [Test]
+        [Category("Item Specific")]
+        public void ArmorDefenseTest()
+        {
+            Assert.AreEqual(string.Concat("Armor Defense Rating: ", 10), ((CombatSimulatorLibrary.Items.Gear.Armor)Armor).DisplayArmor());
+        }
+
+        [Test]
         [Category("Item Creation")]
         public void CanCreateArmorTest()
         {
@@ -21,24 +39,6 @@ namespace CombatSimulatorLibraryTests.Items.Armor
 
             Assert.That(Armor.SellValue, Is.TypeOf<int>());
             Assert.AreEqual(42, Armor.SellValue);
-        }
-
-        [Test]
-        [Category("Item Specific")]
-        public void ArmorDefenseTest()
-        {
-            Assert.AreEqual(string.Concat("Armor Defense Rating: ", 10), Armor.DisplayArmor());
-        }
-
-        [Test]
-        [Category("Currency Conversion")]
-        public void ArmorCurrencyConversionTest()
-        {
-            Armor.ConvertCurrency();
-            Assert.AreEqual(0, Armor.Copper);
-            Assert.AreEqual(2, Armor.Silver);
-            Assert.AreEqual(1, Armor.Gold);
-            Assert.AreEqual(0, Armor.Platinum);
         }
     }
 }

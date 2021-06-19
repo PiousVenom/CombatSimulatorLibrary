@@ -13,11 +13,12 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// <param name="minDamage" type="int">Minimum damage the weapon can do.</param>
         /// <param name="maxDamage" type="int">Maximum damage the weapon can do.</param>
         public Weapon(
-                int cost,
+                int    cost,
                 string name,
-                int minDamage,
-                int maxDamage
-            ) : base(cost, name)
+                int    minDamage,
+                int    maxDamage
+            )
+            : base(cost, name)
         {
             MinDamage = minDamage;
             MaxDamage = maxDamage;
@@ -29,6 +30,7 @@ namespace CombatSimulatorLibrary.Items.Gear
         /// This is the minimum damage that a weapon can do.
         /// </summary>
         private int MinDamage { get; }
+
         /// <summary>
         /// This is the maximum damage that a weapon can do.
         /// </summary>
@@ -45,6 +47,7 @@ namespace CombatSimulatorLibrary.Items.Gear
         public int SwingWeapon()
         {
             var random = RandomNumberGenerator.GetInt32(MinDamage, MaxDamage);
+
             return random;
         }
 

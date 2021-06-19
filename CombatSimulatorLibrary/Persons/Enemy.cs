@@ -6,14 +6,15 @@ namespace CombatSimulatorLibrary.Persons
     public class Enemy : Person
     {
         public Enemy(
-            string name,
-            int level,
-            int maxHitPoints
-        ) : base(name, level, maxHitPoints)
+                string name,
+                int    level,
+                int    maxHitPoints
+            )
+            : base(name, level, maxHitPoints)
         {
-            CurrentHitPoints = maxHitPoints;
+            CurrentHitPoints     = maxHitPoints;
             ExperiencePointValue = level * 4;
-            CopperPieceValue = RandomNumberGenerator.GetInt32(0, 200);
+            CopperPieceValue     = RandomNumberGenerator.GetInt32(0, 200);
         }
 
         #region Properties
@@ -21,17 +22,16 @@ namespace CombatSimulatorLibrary.Persons
         /// <summary>
         /// How many experience points that the player gets for beating this enemy.
         /// </summary>
-        public int ExperiencePointValue { get; set; }
+        public int ExperiencePointValue { get; }
+
         /// <summary>
         /// How many copper pieces the player gets for beating this enemy.
         /// </summary>
-        public int CopperPieceValue { get; set; }
+        public int CopperPieceValue { get; }
 
         #endregion Properties
 
         #region Methods
-
-
 
         #endregion Methods
     }

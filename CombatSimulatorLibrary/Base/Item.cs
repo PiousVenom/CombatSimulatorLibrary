@@ -3,15 +3,15 @@ using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Base
 {
-    public abstract class Item: IItem
+    public abstract class Item : IItem
     {
         protected Item(
-                int cost,
+                int    cost,
                 string name
             )
         {
             CostInCopper = cost;
-            Name = name;
+            Name         = name;
         }
 
         #region Properties
@@ -19,35 +19,42 @@ namespace CombatSimulatorLibrary.Base
         /// <summary>
         /// Name of the item.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
+
         /// <summary>
         /// Items cost in gold pieces.
         /// </summary>
-        public int CostInCopper { get; set; }
+        protected int CostInCopper { get; }
+
         /// <summary>
         /// How much the item will sell for to a vendor.
         /// </summary>
-        public int SellValue { get; set; }
+        public int SellValue { get; protected set; }
+
         /// <summary>
         /// Whether or not an item is equipped to the person.
         /// </summary>
         public bool IsEquipped { get; set; }
+
         /// <summary>
         /// Amount of gold item is worth
         /// </summary>
-        public int Gold { get; set; }
+        public int Gold { get; private set; }
+
         /// <summary>
         /// Amount of platinum item is worth
         /// </summary>
-        public int Platinum { get; set; }
+        public int Platinum { get; private set; }
+
         /// <summary>
         /// Amount of silver item is worth
         /// </summary>
-        public int Silver { get; set; }
+        public int Silver { get; private set; }
+
         /// <summary>
         /// Amount of copper item is worth
         /// </summary>
-        public int Copper { get; set; }
+        public int Copper { get; private set; }
 
         #endregion Properties
 
@@ -57,17 +64,16 @@ namespace CombatSimulatorLibrary.Base
         /// Sets the default sell value for an item.
         /// Formula: (10 * Cost) / 100
         /// </summary>
-        public virtual void SetSellValue() => SellValue = (10 * CostInCopper) / 100;
+        public virtual void SetSellValue() => SellValue = 10 * CostInCopper / 100;
 
-        public virtual void ConvertCurrency()
+        public void ConvertCurrency()
         {
-            var common = new CommonMethods();
-            var coins = common.ConvertCurrency(CostInCopper);
+            var coins = CommonMethods.ConvertCurrency(CostInCopper);
 
-            Copper = coins.Item1;
-            Silver = coins.Item2;
-            Gold = coins.Item3;
-            Platinum = coins.Item4;
+            Copper   = coins.copper;
+            Silver   = coins.silver;
+            Gold     = coins.gold;
+            Platinum = coins.platinum;
         }
 
         #endregion Methods

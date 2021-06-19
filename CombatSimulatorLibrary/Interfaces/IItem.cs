@@ -2,23 +2,22 @@
 {
     public interface IItem
     {
-        #region Properties 
-
-        string Name { get; set; }
-        int CostInCopper { get; set; }
-        int SellValue { get; set; }
-        bool IsEquipped { get; set; }
-        int Gold { get; set; }
-        int Platinum { get; set; }
-        int Silver { get; set; }
-        int Copper { get; set; }
-
-        #endregion Properties 
-
         #region Methods
 
         void SetSellValue();
 
         #endregion Methods
+
+        #region Properties
+
+        string Name       { get; }
+        int    SellValue  { get; }
+        bool   IsEquipped { get; set; }
+        int    Gold       { get; }
+        int    Platinum   { get; }
+        int    Silver     { get; }
+        int    Copper     { get; }
+
+        #endregion Properties
     }
 }

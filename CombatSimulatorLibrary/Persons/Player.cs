@@ -7,13 +7,14 @@ namespace CombatSimulatorLibrary.Persons
     {
         public Player(
                 string name,
-                int level,
-                int maxHitPoints
-            ): base(name, level, maxHitPoints)
+                int    level,
+                int    maxHitPoints
+            )
+            : base(name, level, maxHitPoints)
         {
             CurrentExperiencePoints = 0;
-            CurrentHitPoints = maxHitPoints;
-            CoinsInCopper = 0;
+            CurrentHitPoints        = maxHitPoints;
+            CoinsInCopper           = 0;
         }
 
         #region Properties
@@ -22,10 +23,11 @@ namespace CombatSimulatorLibrary.Persons
         /// Players coins in copper. Can be converted to other types using the ConvertCurrency().
         /// </summary>
         public int CoinsInCopper { get; set; }
+
         /// <summary>
         /// Current experience points for the player.
         /// </summary>
-        public int CurrentExperiencePoints { get; set; }
+        public int CurrentExperiencePoints { get; private set; }
 
         #endregion Properties
 
@@ -54,12 +56,13 @@ namespace CombatSimulatorLibrary.Persons
 
             CoinsInCopper -= amountToRemove;
 
-            if (CoinsInCopper >= 0)
+            if(CoinsInCopper >= 0)
             {
                 return true;
             }
 
             CoinsInCopper = temp;
+
             return false;
         }
 
@@ -68,13 +71,12 @@ namespace CombatSimulatorLibrary.Persons
         /// </summary>
         public void ConvertCurrency()
         {
-            var common = new CommonMethods();
-            var coins = common.ConvertCurrency(CoinsInCopper);
+            var coins  = CommonMethods.ConvertCurrency(CoinsInCopper);
 
-            Copper = coins.Item1;
-            Silver = coins.Item2;
-            Gold = coins.Item3;
-            Platinum = coins.Item4;
+            Copper   = coins.copper;
+            Silver   = coins.silver;
+            Gold     = coins.gold;
+            Platinum = coins.platinum;
         }
 
         #endregion Methods

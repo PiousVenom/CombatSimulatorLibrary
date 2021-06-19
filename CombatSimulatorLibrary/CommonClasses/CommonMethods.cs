@@ -2,34 +2,34 @@
 
 namespace CombatSimulatorLibrary.CommonClasses
 {
-    public class CommonMethods
+    public static class CommonMethods
     {
         /// <summary>
         /// Converts all currency automagically.
         /// </summary>
-        public Tuple<int, int, int, int> ConvertCurrency(int coinsInCopper)
+        public static (int copper, int silver, int gold, int platinum) ConvertCurrency(int coinsInCopper)
         {
             var conversion = Convert(coinsInCopper);
 
-            var copper = conversion.Item2;
+            var copper = conversion.remainder;
 
-            conversion = Convert(conversion.Item1);
-            var silver = conversion.Item2;
+            conversion = Convert(conversion.coin);
+            var silver = conversion.remainder;
 
-            conversion = Convert(conversion.Item1);
-            var gold = conversion.Item2;
+            conversion = Convert(conversion.coin);
+            var gold = conversion.remainder;
 
-            var platinum = conversion.Item1;
+            var platinum = conversion.coin;
 
-            return new Tuple<int, int, int, int>(copper, silver, gold, platinum);
+            return (copper, silver, gold, platinum);
         }
 
-        private static Tuple<int, int> Convert(int coins)
+        private static (int coin, int remainder) Convert(int coins)
         {
             var remainder = coins % 10;
-            var coin = (int)Math.Floor(coins / 10d);
+            var coin      = (int) Math.Floor(coins / 10d);
 
-            return new Tuple<int, int>(coin, remainder);
+            return (coin, remainder);
         }
     }
 }

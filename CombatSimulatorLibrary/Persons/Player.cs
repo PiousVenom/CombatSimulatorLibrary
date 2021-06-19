@@ -71,7 +71,7 @@ namespace CombatSimulatorLibrary.Persons
         /// </summary>
         public void ConvertCurrency()
         {
-            var coins  = CommonMethods.ConvertCurrency(CoinsInCopper);
+            var coins = CommonMethods.ConvertCurrency(CoinsInCopper);
 
             Copper   = coins.copper;
             Silver   = coins.silver;

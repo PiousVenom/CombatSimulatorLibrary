@@ -15,8 +15,8 @@ namespace CombatSimulatorLibraryTests.Persons.Player
             Assert.AreEqual(1,       Player.Level);
             Assert.AreEqual(10,      Player.MaxHitPoints);
             Assert.AreEqual(10,      Player.CurrentHitPoints);
-            Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player)Player).CurrentExperiencePoints);
-            Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player)Player).CoinsInCopper);
+            Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player) Player).CurrentExperiencePoints);
+            Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player) Player).CoinsInCopper);
             Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player) Player).CurrentExperiencePoints);
             Assert.AreEqual(3,       Player.Inventory.Count);
             Assert.IsInstanceOf(typeof(Weapon), Player.EquippedWeapon);
@@ -29,14 +29,14 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         [Category("Person Specific")]
         public void CanUpdatePlayerTest()
         {
-            ((CombatSimulatorLibrary.Persons.Player)Player).AddExperiencePoints(500);
+            ((CombatSimulatorLibrary.Persons.Player) Player).AddExperiencePoints(500);
             Player.RemoveHitPoints(3);
 
             var attack = Player.Attack();
             var defend = Player.Defend();
 
             Assert.AreEqual(7,    Player.CurrentHitPoints);
-            Assert.AreEqual(1000, ((CombatSimulatorLibrary.Persons.Player)Player).CurrentExperiencePoints);
+            Assert.AreEqual(1000, ((CombatSimulatorLibrary.Persons.Player) Player).CurrentExperiencePoints);
             Assert.GreaterOrEqual(attack, 2);
             Assert.LessOrEqual(attack, 20);
             Assert.AreEqual(20, defend);
@@ -58,9 +58,9 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         [Category("Person Specific")]
         public void PersonCanRemoveCoins()
         {
-            ((CombatSimulatorLibrary.Persons.Player)Player).RemoveCoins(100);
+            ((CombatSimulatorLibrary.Persons.Player) Player).RemoveCoins(100);
 
-            Assert.AreEqual(400, ((CombatSimulatorLibrary.Persons.Player)Player).CoinsInCopper);
+            Assert.AreEqual(400, ((CombatSimulatorLibrary.Persons.Player) Player).CoinsInCopper);
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         [Category("Person Specific")]
         public void PersonCanRemoveMoreCoinsThanAvailable()
         {
-            var test = ((CombatSimulatorLibrary.Persons.Player)Player).RemoveCoins(100000);
+            var test = ((CombatSimulatorLibrary.Persons.Player) Player).RemoveCoins(100000);
 
             Assert.False(test);
         }
@@ -110,8 +110,8 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         [Category("Person Specific")]
         public void PersonCurrencyConversionTest()
         {
-            ((CombatSimulatorLibrary.Persons.Player)Player).CoinsInCopper = 500;
-            ((CombatSimulatorLibrary.Persons.Player)Player).ConvertCurrency();
+            ((CombatSimulatorLibrary.Persons.Player) Player).CoinsInCopper = 500;
+            ((CombatSimulatorLibrary.Persons.Player) Player).ConvertCurrency();
             Assert.AreEqual(0, Player.Copper);
             Assert.AreEqual(0, Player.Silver);
             Assert.AreEqual(5, Player.Gold);

@@ -24,21 +24,11 @@ namespace CombatSimulatorLibraryTests.Items.Shield
         }
 
         [Test]
-        [Category("Currency Conversion")]
-        public void ShieldCurrencyConversionTest()
-        {
-            ((CombatSimulatorLibrary.Items.Gear.Shield)Shield).ConvertCurrency();
-            Assert.AreEqual(0, Shield.Copper);
-            Assert.AreEqual(0, Shield.Silver);
-            Assert.AreEqual(2, Shield.Gold);
-            Assert.AreEqual(0, Shield.Platinum);
-        }
-
-        [Test]
         [Category("Item Specific")]
         public void ShieldDefenseTest()
         {
-            Assert.AreEqual(string.Concat("Shield Defense Rating: ", 10), ((CombatSimulatorLibrary.Items.Gear.Shield)Shield).DisplayShield());
+            Assert.AreEqual(string.Concat("Shield Defense Rating: ", 10),
+                            ((CombatSimulatorLibrary.Items.Gear.Shield) Shield).DisplayShield());
         }
     }
 }

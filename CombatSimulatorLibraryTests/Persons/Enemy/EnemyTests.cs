@@ -15,9 +15,9 @@ namespace CombatSimulatorLibraryTests.Persons.Enemy
             Assert.AreEqual(2,        Enemy.Level);
             Assert.AreEqual(15,       Enemy.MaxHitPoints);
             Assert.AreEqual(15,       Enemy.CurrentHitPoints);
-            Assert.AreEqual(8,        ((CombatSimulatorLibrary.Persons.Enemy)Enemy).ExperiencePointValue);
-            Assert.GreaterOrEqual(((CombatSimulatorLibrary.Persons.Enemy)Enemy).CopperPieceValue, 0);
-            Assert.LessOrEqual(((CombatSimulatorLibrary.Persons.Enemy)Enemy).CopperPieceValue, 200);
+            Assert.AreEqual(8,        ((CombatSimulatorLibrary.Persons.Enemy) Enemy).ExperiencePointValue);
+            Assert.GreaterOrEqual(((CombatSimulatorLibrary.Persons.Enemy) Enemy).CopperPieceValue, 0);
+            Assert.LessOrEqual(((CombatSimulatorLibrary.Persons.Enemy) Enemy).CopperPieceValue, 200);
             Assert.AreEqual(3, Enemy.Inventory.Count);
             Assert.IsInstanceOf(typeof(Weapon), Enemy.EquippedWeapon);
             Assert.IsInstanceOf(typeof(Armor),  Enemy.EquippedArmor);

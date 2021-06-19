@@ -1,5 +1,4 @@
 ﻿using CombatSimulatorLibrary.Interfaces;
-using CombatSimulatorLibrary.Items.Gear;
 using CombatSimulatorLibrary.Persons;
 using NUnit.Framework;
 
@@ -17,14 +16,14 @@ namespace CombatSimulatorLibraryTests
         [OneTimeSetUp]
         public void SetupTests()
         {
-            Weapon = new Weapon(100, "Long Sword", 2, 20);
-            Armor  = new Armor(120, "Plate Armor", 10);
-            Shield = new Shield(200, "Buckler", 10);
+            Weapon = CombatSimulatorLibrary.Items.Gear.Weapon.CreateInstance(200, "Long Sword", 2, 20);
+            Armor  = CombatSimulatorLibrary.Items.Gear.Armor.CreateInstance(200, "Plate Armor", 10);
+            Shield = CombatSimulatorLibrary.Items.Gear.Shield.CreateInstance(200, "Buckler", 10);
             Player = new Player("Kevin", 1, 10);
             Enemy  = new Enemy("Goblin", 2, 15);
 
-            ((Player)Player).AddCoins(500);
-            ((Player)Player).AddExperiencePoints(500);
+            ((Player) Player).AddCoins(500);
+            ((Player) Player).AddExperiencePoints(500);
             Player.AddItemToInventory(Shield);
             Player.AddItemToInventory(Weapon);
             Player.AddItemToInventory(Armor);

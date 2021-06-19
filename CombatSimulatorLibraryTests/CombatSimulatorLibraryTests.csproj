@@ -10,6 +10,8 @@
     <Company>Pious Venom Studios</Company>
 
     <Product>Combat Simulator Library Tests</Product>
+
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

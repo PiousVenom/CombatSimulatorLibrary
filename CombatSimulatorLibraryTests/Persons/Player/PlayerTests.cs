@@ -1,4 +1,4 @@
-﻿using CombatSimulatorLibrary.Items.Gear;
+﻿using CombatSimulatorLibrary.Interfaces;
 using NUnit.Framework;
 
 namespace CombatSimulatorLibraryTests.Persons.Player
@@ -19,9 +19,9 @@ namespace CombatSimulatorLibraryTests.Persons.Player
             Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player) Player).CoinsInCopper);
             Assert.AreEqual(500,     ((CombatSimulatorLibrary.Persons.Player) Player).CurrentExperiencePoints);
             Assert.AreEqual(3,       Player.Inventory.Count);
-            Assert.IsInstanceOf(typeof(Weapon), Player.EquippedWeapon);
-            Assert.IsInstanceOf(typeof(Armor),  Player.EquippedArmor);
-            Assert.IsInstanceOf(typeof(Shield), Player.EquippedShield);
+            Assert.AreEqual(Player.EquippedWeapon.Purpose, Purpose.Weapon);
+            Assert.AreEqual(Player.EquippedArmor.Purpose,  Purpose.Armor);
+            Assert.AreEqual(Player.EquippedShield.Purpose, Purpose.Shield);
         }
 
         [Test]
@@ -111,7 +111,12 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         public void PersonCurrencyConversionTest()
         {
             ((CombatSimulatorLibrary.Persons.Player) Player).CoinsInCopper = 500;
-            ((CombatSimulatorLibrary.Persons.Player) Player).ConvertCurrency();
+            var (copper, silver, gold, platinum)                           = ICommon.ConvertCurrency(Player.CoinsInCopper);
+            Player.Copper                                                  = copper;
+            Player.Silver                                                  = silver;
+            Player.Gold                                                    = gold;
+            Player.Platinum                                                = platinum;
+            
             Assert.AreEqual(0, Player.Copper);
             Assert.AreEqual(0, Player.Silver);
             Assert.AreEqual(5, Player.Gold);

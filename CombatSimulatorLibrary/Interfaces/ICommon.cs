@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace CombatSimulatorLibrary.CommonClasses
+namespace CombatSimulatorLibrary.Interfaces
 {
-    public static class CommonMethods
+    public interface ICommon
     {
         /// <summary>
         /// Converts all currency automagically.
+        /// <params name="coinsInCopper" type="int">The coins in copper to be converted.</params>
         /// </summary>
         public static (int copper, int silver, int gold, int platinum) ConvertCurrency(int coinsInCopper)
         {

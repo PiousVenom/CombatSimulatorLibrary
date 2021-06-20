@@ -1,9 +1,9 @@
 ﻿using CombatSimulatorLibrary.Base;
-using CombatSimulatorLibrary.CommonClasses;
+using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Persons
 {
-    public class Player : Person
+    public class Player : Person, ICommon
     {
         public Player(
                 string name,
@@ -18,11 +18,6 @@ namespace CombatSimulatorLibrary.Persons
         }
 
         #region Properties
-
-        /// <summary>
-        /// Players coins in copper. Can be converted to other types using the ConvertCurrency().
-        /// </summary>
-        public int CoinsInCopper { get; set; }
 
         /// <summary>
         /// Current experience points for the player.
@@ -64,19 +59,6 @@ namespace CombatSimulatorLibrary.Persons
             CoinsInCopper = temp;
 
             return false;
-        }
-
-        /// <summary>
-        /// Converts all currency automagically.
-        /// </summary>
-        public void ConvertCurrency()
-        {
-            var coins = CommonMethods.ConvertCurrency(CoinsInCopper);
-
-            Copper   = coins.copper;
-            Silver   = coins.silver;
-            Gold     = coins.gold;
-            Platinum = coins.platinum;
         }
 
         #endregion Methods

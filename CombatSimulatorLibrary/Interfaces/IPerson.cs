@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CombatSimulatorLibrary.Items.Gear;
 
 namespace CombatSimulatorLibrary.Interfaces
 {
@@ -11,14 +10,15 @@ namespace CombatSimulatorLibrary.Interfaces
         int         Level            { get; }
         int         CurrentHitPoints { get; }
         int         MaxHitPoints     { get; }
-        int         Gold             { get; }
-        int         Platinum         { get; }
-        int         Silver           { get; }
-        int         Copper           { get; }
-        List<IItem> Inventory        { get; }
-        Weapon      EquippedWeapon   { get; }
-        Armor       EquippedArmor    { get; }
-        Shield      EquippedShield   { get; }
+        int         CoinsInCopper    { get; }
+        int         Gold             { get; set; }
+        int         Platinum         { get; set; }
+        int         Silver           { get; set; }
+        int         Copper           { get; set; }
+        List<IGear> Inventory        { get; }
+        IGear       EquippedWeapon   { get; }
+        IGear       EquippedArmor    { get; }
+        IGear       EquippedShield   { get; }
 
         #endregion Properties
 
@@ -26,21 +26,21 @@ namespace CombatSimulatorLibrary.Interfaces
 
         int Attack();
 
-        int Defend();
+        int? Defend();
 
         void RemoveHitPoints(int hpLost);
 
         void ResetHitPoints();
 
-        void AddItemToInventory(IItem itemToAdd);
+        void AddItemToInventory(IGear gearToAdd);
 
-        void RemoveItemFromInventory(IItem itemToRemove);
+        void RemoveItemFromInventory(IGear gearToRemove);
 
-        void EquipWeapon(IItem weaponToEquip);
+        void EquipWeapon(IGear weaponToEquip);
 
-        void EquipArmor(IItem armorToEquip);
+        void EquipArmor(IGear armorToEquip);
 
-        void EquipShield(IItem shieldToEquip);
+        void EquipShield(IGear shieldToEquip);
 
         #endregion Methods
     }

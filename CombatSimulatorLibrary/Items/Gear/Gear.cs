@@ -13,7 +13,7 @@ namespace CombatSimulatorLibrary.Items.Gear
             Purpose      = purpose;
         }
 
-        public Gear(int costInCopper, string name, Purpose purpose, int? minDamage = null, int? maxDamage = null)
+        public Gear(int costInCopper, string name, Purpose purpose, int? minDamage, int? maxDamage)
         {
             CostInCopper = costInCopper;
             Name         = name;

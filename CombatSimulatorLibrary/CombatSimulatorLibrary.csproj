@@ -7,6 +7,12 @@
     <Platforms>AnyCPU;x64</Platforms>
     <LangVersion>default</LangVersion>
     <TargetFramework>net5.0</TargetFramework>
+    <FileVersion>0.3.1.0</FileVersion>
+    <Version>0.3.1.0</Version>
+    <ApplicationVersion>0.3.*</ApplicationVersion>
+    <AssemblyVersion>0.3.*</AssemblyVersion>
+    <ProductVersion>0.3.1.0</ProductVersion>
+    <Deterministic>false</Deterministic>
   </PropertyGroup>
 
 </Project>

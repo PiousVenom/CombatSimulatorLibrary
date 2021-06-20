@@ -40,22 +40,22 @@ namespace CombatSimulatorLibraryTests.Items.Base
         
         private static void SetGearSellValue(IGear gear)
         {
+            if(gear.Purpose != Purpose.Undefined)
+            {
+                gear.SetSellValue();
+                Assert.That(gear.SellValue, Is.TypeOf<int>());
+            }
+            
             switch(gear.Purpose)
             {
                 case Purpose.Weapon:
-                    gear.SetSellValue();
                     Assert.AreEqual(20, gear.SellValue);
-                    Assert.That(gear.SellValue, Is.TypeOf<int>());
                     break;
                 case Purpose.Armor:
-                    gear.SetSellValue();
                     Assert.AreEqual(70, gear.SellValue);
-                    Assert.That(gear.SellValue, Is.TypeOf<int>());
                     break;
                 case Purpose.Shield:
-                    gear.SetSellValue();
                     Assert.AreEqual(30, gear.SellValue);
-                    Assert.That(gear.SellValue, Is.TypeOf<int>());
                     break;
                 default:
                     Assert.Throws<ArgumentOutOfRangeException>(gear.SetSellValue);

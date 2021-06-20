@@ -19,9 +19,9 @@ namespace CombatSimulatorLibraryTests
         [OneTimeSetUp]
         public void SetupTests()
         {
-            Weapon      = new Gear(200, "Long Sword",   Purpose.Weapon, null, 2, 20);
+            Weapon      = new Gear(200, "Long Sword",   Purpose.Weapon, 2, 20);
             BrokeWeapon = new Gear(200, "Broke Weapon", Purpose.Weapon);
-            NoPurpose = new Gear(200, "Broke Weapon", Purpose.Undefined);
+            NoPurpose   = new Gear(200, "Broke Weapon", Purpose.Undefined);
             Armor       = new Gear(200, "Plate Armor",  Purpose.Armor,  10);
             Shield      = new Gear(200, "Buckler",      Purpose.Shield, 10);
             Player      = new Player("Kevin", 1, 10);

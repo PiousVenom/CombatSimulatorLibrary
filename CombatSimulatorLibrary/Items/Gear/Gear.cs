@@ -6,20 +6,28 @@ namespace CombatSimulatorLibrary.Items.Gear
 {
     public class Gear : IGear, ICommon
     {
-        public Gear(int costInCopper, string name, Purpose purpose, int? defense = null, int? minDamage = null, int? maxDamage = null)
+        public Gear(int costInCopper, string name, Purpose purpose)
         {
             CostInCopper = costInCopper;
             Name         = name;
             Purpose      = purpose;
+        }
 
-            if(Purpose != Purpose.Weapon)
-            {
-                SetupGear(Purpose is Purpose.Shield or Purpose.Armor ? defense : null, null, null);
-            }
-            else
-            {
-                SetupGear(null, minDamage, maxDamage);
-            }
+        public Gear(int costInCopper, string name, Purpose purpose, int? minDamage = null, int? maxDamage = null)
+        {
+            CostInCopper = costInCopper;
+            Name         = name;
+            Purpose      = purpose;
+            MinDamage    = minDamage;
+            MaxDamage    = maxDamage;
+        }
+        
+        public Gear(int costInCopper, string name, Purpose purpose, int? defense)
+        {
+            CostInCopper = costInCopper;
+            Name         = name;
+            Purpose      = purpose;
+            Defense      = defense;
         }
 
         /// <summary>
@@ -41,12 +49,6 @@ namespace CombatSimulatorLibrary.Items.Gear
             var random = RandomNumberGenerator.GetInt32((int) MinDamage, (int) MaxDamage);
 
             return random;
-        }
-        private void SetupGear(int? defense, int? minDamage, int? maxDamage)
-        {
-            MinDamage = minDamage;
-            MaxDamage = maxDamage;
-            Defense   = defense;
         }
 
         public void    SetSellValue()
@@ -78,8 +80,8 @@ namespace CombatSimulatorLibrary.Items.Gear
         public  int     Platinum     { get; set; }
         public  int     Silver       { get; set; }
         public  int     Copper       { get; set; }
-        public  int?    Defense      { get; private set; }
-        private int?    MinDamage    { get; set; }
-        private int?    MaxDamage    { get; set; }
+        public  int?    Defense      { get; }
+        private int?    MinDamage    { get; }
+        private int?    MaxDamage    { get; }
     }
 }

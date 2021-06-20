@@ -11,3 +11,4 @@ script:
   - dotnet test /home/travis/build/PiousVenom/CombatSimulatorLibrary/CombatSimulatorLibraryTests/CombatSimulatorLibraryTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 after_script:
   - csmacnz.Coveralls --opencover -i /home/travis/build/PiousVenom/CombatSimulatorLibrary/CombatSimulatorLibraryTests/coverage.opencover.xml --useRelativePaths
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /home/travis/build/PiousVenom/CombatSimulatorLibrary/CombatSimulatorLibraryTests/coverage.opencover.xml

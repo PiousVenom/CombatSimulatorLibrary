@@ -10,3 +10,5 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![Code Quality Score](https://www.code-inspector.com/project/23974/score/svg)](https://frontend.code-inspector.com/public/project/23974/CombatSimulatorLibrary/dashboard)
 [![Code Grade](https://www.code-inspector.com/project/23974/status/svg)](https://frontend.code-inspector.com/public/project/23974/CombatSimulatorLibrary/dashboard)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/PiousVenom/CombatSimulatorLibrary?style=plastic)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/PiousVenom/CombatSimulatorLibrary/master?style=plastic)

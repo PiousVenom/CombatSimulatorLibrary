@@ -3,7 +3,8 @@ using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Persons
 {
-    public class Player : Person, ICommon
+    public class Player : Person,
+                          ICommon
     {
         public Player(
                 string name,

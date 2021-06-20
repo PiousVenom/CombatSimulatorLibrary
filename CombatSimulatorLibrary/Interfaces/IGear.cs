@@ -7,7 +7,7 @@
         Weapon,
         Armor,
     }
-    
+
     public interface IGear
     {
         #region Methods
@@ -17,7 +17,7 @@
         /// Formula: (10 * Cost) / 100
         /// </summary>
         void SetSellValue();
-        
+
         #endregion Methods
 
         #region Properties

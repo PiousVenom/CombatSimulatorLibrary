@@ -4,7 +4,8 @@ using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Items.Gear
 {
-    public class Gear : IGear, ICommon
+    public class Gear : IGear,
+                        ICommon
     {
         public Gear(int costInCopper, string name, Purpose purpose)
         {
@@ -21,7 +22,7 @@ namespace CombatSimulatorLibrary.Items.Gear
             MinDamage    = minDamage;
             MaxDamage    = maxDamage;
         }
-        
+
         public Gear(int costInCopper, string name, Purpose purpose, int? defense)
         {
             CostInCopper = costInCopper;
@@ -51,12 +52,12 @@ namespace CombatSimulatorLibrary.Items.Gear
             return random;
         }
 
-        public void    SetSellValue()
+        public void SetSellValue()
         {
             SellValue = Purpose switch {
-                Purpose.Shield    => 15 * CostInCopper / 100,
-                Purpose.Weapon    => 10 * CostInCopper / 100,
-                Purpose.Armor     => 35 * CostInCopper / 100,
+                Purpose.Shield         => 15 * CostInCopper / 100,
+                Purpose.Weapon         => 10 * CostInCopper / 100,
+                Purpose.Armor          => 35 * CostInCopper / 100,
                 Purpose.Undefined or _ => throw new ArgumentOutOfRangeException(),
             };
         }
@@ -64,9 +65,9 @@ namespace CombatSimulatorLibrary.Items.Gear
         public string Display()
         {
             return Purpose switch {
-                Purpose.Shield    => string.Concat("Shield Defense Rating: ", Defense),
-                Purpose.Weapon    => string.Concat("Damage: ",                MinDamage, " - ", MaxDamage, " points"),
-                Purpose.Armor     => string.Concat("Armor Defense Rating: ",  Defense),
+                Purpose.Shield         => string.Concat("Shield Defense Rating: ", Defense),
+                Purpose.Weapon         => string.Concat("Damage: ", MinDamage, " - ", MaxDamage, " points"),
+                Purpose.Armor          => string.Concat("Armor Defense Rating: ", Defense),
                 Purpose.Undefined or _ => throw new ArgumentOutOfRangeException(),
             };
         }

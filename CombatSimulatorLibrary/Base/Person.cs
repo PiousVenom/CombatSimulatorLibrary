@@ -11,10 +11,10 @@ namespace CombatSimulatorLibrary.Base
                 int    maxHitPoints
             )
         {
-            Name               = name;
-            Level              = level;
-            MaxHitPoints       = maxHitPoints;
-            Inventory          = new List<IGear>();
+            Name         = name;
+            Level        = level;
+            MaxHitPoints = maxHitPoints;
+            Inventory    = new List<IGear>();
         }
 
         #region Properties
@@ -55,6 +55,7 @@ namespace CombatSimulatorLibrary.Base
         /// Current amount of silver coins a person has
         /// </summary>
         public int Silver { get; set; }
+
         /// <summary>
         /// Current amount of copper coins a person has
         /// </summary>

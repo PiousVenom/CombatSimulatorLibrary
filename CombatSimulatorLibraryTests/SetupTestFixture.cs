@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace CombatSimulatorLibraryTests
 {
- public class SetupTestFixture
+    public class SetupTestFixture
     {
         protected IGear   Weapon      { get; private set; }
         protected IGear   BrokeWeapon { get; private set; }

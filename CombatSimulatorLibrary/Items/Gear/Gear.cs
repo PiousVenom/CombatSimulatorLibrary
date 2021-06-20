@@ -72,7 +72,7 @@ namespace CombatSimulatorLibrary.Items.Gear
         public  Purpose Purpose      { get; }
         public  int     CostInCopper { get; }
         public  string  Name         { get; }
-        public  int     SellValue    { get; set; }
+        public  int     SellValue    { get; private set; }
         public  bool    IsEquipped   { get; set; }
         public  int     Gold         { get; set; }
         public  int     Platinum     { get; set; }

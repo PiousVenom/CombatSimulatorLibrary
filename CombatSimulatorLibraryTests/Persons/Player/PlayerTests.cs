@@ -43,17 +43,6 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         }
 
         [Test]
-        [Order(6)]
-        [Category("Person Specific")]
-        public void PersonCanRemoveArmor()
-        {
-            Player.RemoveItemFromInventory(Armor);
-
-            Assert.AreEqual(1, Player.Inventory.Count);
-            Assert.IsNull(Player.EquippedArmor);
-        }
-
-        [Test]
         [Order(8)]
         [Category("Person Specific")]
         public void PersonCanRemoveCoins()
@@ -76,22 +65,15 @@ namespace CombatSimulatorLibraryTests.Persons.Player
         [Test]
         [Order(5)]
         [Category("Person Specific")]
-        public void PersonCanRemoveShield()
+        public void PersonCanRemoveGear()
         {
             Player.RemoveItemFromInventory(Shield);
-
-            Assert.AreEqual(2, Player.Inventory.Count);
-            Assert.IsNull(Player.EquippedShield);
-        }
-
-        [Test]
-        [Order(7)]
-        [Category("Person Specific")]
-        public void PersonCanRemoveWeapon()
-        {
+            Player.RemoveItemFromInventory(Armor);
             Player.RemoveItemFromInventory(Weapon);
 
             Assert.AreEqual(0, Player.Inventory.Count);
+            Assert.IsNull(Player.EquippedShield);
+            Assert.IsNull(Player.EquippedArmor);
             Assert.IsNull(Player.EquippedWeapon);
         }
 

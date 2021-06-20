@@ -16,10 +16,7 @@
         /// Sets the default sell value for an item.
         /// Formula: (10 * Cost) / 100
         /// </summary>
-        public void SetSellValue()
-        {
-            SellValue = 10 * CostInCopper / 100;
-        }
+        void SetSellValue();
         
         #endregion Methods
 
@@ -27,7 +24,7 @@
 
         int     CostInCopper { get; }
         string  Name         { get; }
-        int     SellValue    { get; set; }
+        int     SellValue    { get; }
         bool    IsEquipped   { get; set; }
         int     Gold         { get; set; }
         int     Platinum     { get; set; }

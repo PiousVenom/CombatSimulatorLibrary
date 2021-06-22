@@ -65,7 +65,6 @@ namespace CombatSimulatorLibraryTests.Items.Base
         [Test]
         public void GetSellValue()
         {
-            var test = NoPurpose.SellValue;
             Assert.AreEqual(20, Weapon.SellValue);
             Assert.AreEqual(70, Armor.SellValue);
             Assert.AreEqual(30, Shield.SellValue);

@@ -3,6 +3,9 @@ using CombatSimulatorLibrary.Interfaces;
 
 namespace CombatSimulatorLibrary.Persons
 {
+    /// <summary>
+    /// Inherit's Person
+    /// </summary>
     public class Player : Person,
                           ICommon
     {

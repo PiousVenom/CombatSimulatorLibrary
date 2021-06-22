@@ -1,5 +1,6 @@
 ﻿using System;
 using CombatSimulatorLibrary.Interfaces;
+using CombatSimulatorLibrary.Items.Gear;
 using NUnit.Framework;
 
 namespace CombatSimulatorLibraryTests.Items.Base
@@ -38,41 +39,6 @@ namespace CombatSimulatorLibraryTests.Items.Base
             Assert.IsTrue(Weapon.IsEquipped);
         }
         
-        private static void SetGearSellValue(IGear gear)
-        {
-            if(gear.Purpose != Purpose.Undefined)
-            {
-                gear.SetSellValue();
-                Assert.That(gear.SellValue, Is.TypeOf<int>());
-            }
-            
-            switch(gear.Purpose)
-            {
-                case Purpose.Weapon:
-                    Assert.AreEqual(20, gear.SellValue);
-                    break;
-                case Purpose.Armor:
-                    Assert.AreEqual(70, gear.SellValue);
-                    break;
-                case Purpose.Shield:
-                    Assert.AreEqual(30, gear.SellValue);
-                    break;
-                default:
-                    Assert.Throws<ArgumentOutOfRangeException>(gear.SetSellValue);
-                    break;
-            }
-        }
-
-        [Test]
-        [Category("Sell Items")]
-        public void SetGearSellValueTest()
-        {
-            SetGearSellValue(Weapon);
-            SetGearSellValue(Armor);
-            SetGearSellValue(Shield);
-            SetGearSellValue(NoPurpose);
-        }
-        
         [Test]
         [Category("Item Specific")]
         public void SwingWeaponTest()
@@ -94,6 +60,16 @@ namespace CombatSimulatorLibraryTests.Items.Base
            GearDisplay(Weapon);
            GearDisplay(Armor);
            GearDisplay(NoPurpose);
+        }
+
+        [Test]
+        public void GetSellValue()
+        {
+            var test = NoPurpose.SellValue;
+            Assert.AreEqual(20, Weapon.SellValue);
+            Assert.AreEqual(70, Armor.SellValue);
+            Assert.AreEqual(30, Shield.SellValue);
+            Assert.That(() => new Gear(), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
         private static void GearDisplay(IGear gear)

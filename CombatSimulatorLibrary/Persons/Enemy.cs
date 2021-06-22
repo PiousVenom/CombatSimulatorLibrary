@@ -3,6 +3,10 @@ using CombatSimulatorLibrary.Base;
 
 namespace CombatSimulatorLibrary.Persons
 {
+    /// <summary>
+    /// Inherit's Person
+    /// Enemy of player
+    /// </summary>
     public class Enemy : Person
     {
         public Enemy(

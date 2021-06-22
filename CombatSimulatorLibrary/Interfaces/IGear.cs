@@ -12,12 +12,6 @@
     {
         #region Methods
 
-        /// <summary>
-        /// Sets the default sell value for an item.
-        /// Formula: (10 * Cost) / 100
-        /// </summary>
-        void SetSellValue();
-
         #endregion Methods
 
         #region Properties
